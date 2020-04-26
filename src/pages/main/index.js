@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
+import Icon, { FontAwesome, Feather } from "react-web-vector-icons";
 import {
   Button,
   Container,
   Row,
   Col,
   Form,
+  InputGroup,
+  FormControl,
   Nav,
   Carousel,
   Card,
@@ -64,12 +67,12 @@ function ControlledCarousel() {
 
 const Main = () => {
   return (
-    <Container id="index" fluid="md">
+    <Container fluid>
       <Row>
         <Col>
-          <Nav defaultActiveKey="/home" as="ul">
+          <Nav defaultActiveKey="/main" as="ul">
             <Nav.Item as="li">
-              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/main">Home</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Nav.Link eventKey="link-1">About</Nav.Link>
@@ -140,7 +143,7 @@ const Main = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col style={{ margin: 20 }}>
+        <Col>
           <Card style={{ width: "18rem" }}>
             <Card.Img
               height="160"
@@ -159,9 +162,55 @@ const Main = () => {
         </Col>
       </Row>
       {/* Map */}
+      <Row style={{ backgroundColor: "#034473", paddingTop: 40 }}>
+        <Col lg="6">
+          <div style={{ color: "white" }}>
+            <h1>Newsletter</h1>
+            <p>Fique por dentro de todas nossas novidades e promoções</p>
+          </div>
+        </Col>
+        <Col>
+          <InputGroup className="mb-4">
+            <FormControl
+              style={{ height: 50 }}
+              placeholder="E-mail"
+              aria-label="E-mail"
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Append>
+              <Button
+                style={{ backgroundColor: "white" }}
+                variant="outline-secondary"
+              >
+                Send
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Col>
+      </Row>
       <Row>
         <Col>
-          <Mapbox />
+          <Icon
+            name="tools"
+            font="Entypo"
+            color="green"
+            size={20}
+            // style={{}}
+          />
+
+          <FontAwesome
+            name="bell"
+            color="green"
+            size={30}
+            // style={{}}
+          />
+
+          <Feather
+            name="award"
+            color="#007ACC"
+            size={40}
+            // style={{}}
+          />
         </Col>
       </Row>
     </Container>
