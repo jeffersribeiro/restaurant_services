@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import Icon, { FontAwesome, Feather } from "react-web-vector-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faCheckSquare, faCoffee } from "@fortawesome/free-solid-svg-icons";
+
 import {
   Button,
   Container,
   Row,
   Col,
+  Image,
   Form,
   InputGroup,
   FormControl,
@@ -16,9 +21,10 @@ import {
 } from "react-bootstrap";
 import Mapbox from "../mapbox";
 
+library.add(faCheckSquare, faCoffee, fab);
+
 function ControlledCarousel() {
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
@@ -42,7 +48,6 @@ function ControlledCarousel() {
           src={require("../../assets/images/foto-2.jpg")}
           alt="Second slide"
         />
-
         <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -69,6 +74,13 @@ const Main = () => {
   return (
     <Container fluid>
       <Row>
+      <Col md="auto">
+          <Image
+            style={{ width: 50,margin:10 }}
+            src={require("../../assets/images/icon.jpeg")}
+            rounded
+          />
+        </Col>
         <Col>
           <Nav defaultActiveKey="/main" as="ul">
             <Nav.Item as="li">
@@ -162,7 +174,7 @@ const Main = () => {
         </Col>
       </Row>
       {/* Map */}
-      <Row style={{ backgroundColor: "#034473", paddingTop: 40 }}>
+      <Row style={{ backgroundColor: "#034473", padding: 40 }}>
         <Col lg="6">
           <div style={{ color: "white" }}>
             <h1>Newsletter</h1>
@@ -188,29 +200,27 @@ const Main = () => {
           </InputGroup>
         </Col>
       </Row>
-      <Row>
+      <Row style={{ margin: 50 }}>
         <Col>
-          <Icon
-            name="tools"
-            font="Entypo"
-            color="green"
-            size={20}
-            // style={{}}
-          />
-
-          <FontAwesome
-            name="bell"
-            color="green"
-            size={30}
-            // style={{}}
-          />
-
-          <Feather
-            name="award"
-            color="#007ACC"
-            size={40}
-            // style={{}}
-          />
+          <h4>Siga nos</h4>
+          <div class="icons">
+            <FontAwesomeIcon
+              style={{ color: "red", fontSize: 36, margin: 8 }}
+              icon={["fab", "youtube"]}
+            />
+            <FontAwesomeIcon
+              style={{ color: "#0460c2", fontSize: 36, margin: 8 }}
+              icon={["fab", "facebook-square"]}
+            />
+            <FontAwesomeIcon
+              style={{ color: "#a30b50", fontSize: 36, margin: 8 }}
+              icon={["fab", "instagram"]}
+            />
+            <FontAwesomeIcon
+              style={{ color: "#3a84de", fontSize: 36, margin: 8 }}
+              icon={["fab", "linkedin"]}
+            />
+          </div>
         </Col>
       </Row>
     </Container>
