@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 
 import { auth } from "../../services/firebase";
 import { Form, Container } from "./styles";
+import { login } from "../../services/auth";
 
 class SignIn extends Component {
   state = {
@@ -17,13 +18,18 @@ class SignIn extends Component {
     if (!email || !password) {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
-      auth.signInWithEmailAndPassword(email, password).catch((err) => {
-        this.setState({
-          error:
-            "Houve um problema com o login, verifique suas credenciais. T.T",
+      auth
+        .signInWithEmailAndPassword(email, password)
+        .then((res) => {
+          login(res.user.l);
+          this.props.history.push("/main");
+        })
+        .catch((err) => {
+          this.setState({
+            error:
+              "Houve um problema com o login, verifique suas credenciais. T.T",
+          });
         });
-      });
-      this.props.history.push("/main");
     }
   };
 

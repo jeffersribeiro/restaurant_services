@@ -33,6 +33,7 @@ function ControlledCarousel() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
+          style={{ height: 680 }}
           className="d-block w-100"
           src={require("../../assets/images/foto-3.jpg")}
           alt="First slide"
@@ -44,6 +45,7 @@ function ControlledCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
+          style={{ height: 680 }}
           className="d-block w-100"
           src={require("../../assets/images/foto-2.jpg")}
           alt="Second slide"
@@ -55,6 +57,7 @@ function ControlledCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
+          style={{ height: 680 }}
           className="d-block w-100"
           src={require("../../assets/images/foto-1.jpg")}
           alt="Third slide"
@@ -74,9 +77,9 @@ const Main = () => {
   return (
     <Container fluid>
       <Row>
-      <Col md="auto">
+        <Col md="auto">
           <Image
-            style={{ width: 50,margin:10 }}
+            style={{ width: 50, margin: 10 }}
             src={require("../../assets/images/icon.jpeg")}
             rounded
           />
@@ -173,7 +176,6 @@ const Main = () => {
           </Card>
         </Col>
       </Row>
-      {/* Map */}
       <Row style={{ backgroundColor: "#034473", padding: 40 }}>
         <Col lg="6">
           <div style={{ color: "white" }}>
