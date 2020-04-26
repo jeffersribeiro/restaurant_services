@@ -17,12 +17,12 @@ class SignIn extends Component {
     if (!email || !password) {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
-      // auth.signInWithEmailAndPassword(email, password).catch((err) => {
-      //   this.setState({
-      //     error:
-      //       "Houve um problema com o login, verifique suas credenciais. T.T",
-      //   });
-      // });
+      auth.signInWithEmailAndPassword(email, password).catch((err) => {
+        this.setState({
+          error:
+            "Houve um problema com o login, verifique suas credenciais. T.T",
+        });
+      });
       this.props.history.push("/main");
     }
   };

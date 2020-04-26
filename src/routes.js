@@ -4,13 +4,13 @@ import Main from "./pages/main";
 import SignIn from "./pages/signin";
 import SignUp from './pages/signup'
 
-function App()  {
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={SignIn} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/main" component={Main} />
+        <Route path="/" exact={true} component={SignIn} />
+        <Route path="/signup" exact={true} component={SignUp} />
+        <Route path="/main"  exact={true} component={Main} />
       </Switch>
     </BrowserRouter>
   );

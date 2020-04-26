@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./style.css"
+import { withRouter } from "react-router-dom";
 import {
   Button,
-  Alert,
   Container,
   Row,
   Col,
@@ -177,4 +175,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default withRouter(Main);
