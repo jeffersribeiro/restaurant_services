@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./style.css"
 import {
   Button,
   Alert,
@@ -63,7 +64,7 @@ function ControlledCarousel() {
 
 const Main = () => {
   return (
-    <Container fluid="md">
+    <Container id="index" fluid="md">
       <Row>
         <Col>
           <Nav defaultActiveKey="/home" as="ul">
@@ -97,7 +98,7 @@ const Main = () => {
         </Col>
       </Row>
       {/* Cards */}
-      <Row style={{margin:20}}>
+      <Row style={{ margin: 20 }}>
         <Col>
           <Card style={{ width: "18rem" }}>
             <Card.Img
@@ -165,6 +166,29 @@ const Main = () => {
           </Form>
         </Col>
       </Row>
+      <Row>
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Row>
+
     </Container>
   );
 };

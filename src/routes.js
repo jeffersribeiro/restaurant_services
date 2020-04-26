@@ -4,11 +4,11 @@ import Main from "./pages/main";
 import SignIn from "./pages/signin";
 import SignUp from './pages/signup'
 
-const App = () => {
+function App()  {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Main} />
+        <Route path="/" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route path="/main" component={Main} />
       </Switch>
