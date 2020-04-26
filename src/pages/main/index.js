@@ -97,7 +97,7 @@ const Main = () => {
         </Col>
       </Row>
       {/* Cards */}
-      <Row style={{margin:20}}>
+      <Row style={{ margin: 20 }}>
         <Col>
           <Card style={{ width: "18rem" }}>
             <Card.Img
@@ -131,7 +131,7 @@ const Main = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
+        <Col style={{ margin: 20 }}>
           <Card style={{ width: "18rem" }}>
             <Card.Img
               height="160"
@@ -150,7 +150,7 @@ const Main = () => {
         </Col>
       </Row>
       {/* news letters */}
-      <Row>
+      <Row className="justify-content-end">
         <Col>
           <Form>
             <Form.Row>
@@ -163,6 +163,13 @@ const Main = () => {
               </Col>
             </Form.Row>
           </Form>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <footer style={{ margin: 20 }}>
+            Numero:123456789 E-mail: restaurante@gmail.com CNPJ:132456789/12
+          </footer>
         </Col>
       </Row>
     </Container>
