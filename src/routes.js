@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Main from "./pages/main";
 import SignIn from "./pages/signin";
-import SignUp from './pages/signup'
+import SignUp from './pages/signup';
+import Mapbox from './pages/mapbox'
 
 const App = () => {
   return (

@@ -9,7 +9,9 @@ import {
   Nav,
   Carousel,
   Card,
+  NavDropdown,
 } from "react-bootstrap";
+import Mapbox from "../mapbox";
 
 function ControlledCarousel() {
   const [index, setIndex] = useState(0);
@@ -84,7 +86,15 @@ const Main = () => {
           <Nav className="justify-content-end" activeKey="/home">
             <Nav.Item>
               <Nav.Link>
-                <Button>Painel</Button>
+                <NavDropdown title="Painel" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2">Perfil</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.3">Plano</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item eventKey="4.4">
+                    Separated link
+                  </NavDropdown.Item>
+                </NavDropdown>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -148,27 +158,10 @@ const Main = () => {
           </Card>
         </Col>
       </Row>
-      {/* news letters */}
-      <Row className="justify-content-end">
-        <Col>
-          <Form>
-            <Form.Row>
-              <Col sm lg="4">
-                <Form.Control placeholder="First name" />
-              </Col>
-              <Col md="auto" lg="2"></Col>
-              <Col xs lg="2">
-                <Button>News Letter</Button>
-              </Col>
-            </Form.Row>
-          </Form>
-        </Col>
-      </Row>
+      {/* Map */}
       <Row>
         <Col>
-          <footer style={{ margin: 20 }}>
-            Numero:123456789 E-mail: restaurante@gmail.com CNPJ:132456789/12
-          </footer>
+          <Mapbox />
         </Col>
       </Row>
     </Container>
