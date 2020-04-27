@@ -11,7 +11,6 @@ import {
   Row,
   Col,
   Image,
-  Form,
   InputGroup,
   FormControl,
   Nav,
@@ -19,7 +18,6 @@ import {
   Card,
   NavDropdown,
 } from "react-bootstrap";
-import Mapbox from "../mapbox";
 
 library.add(faCheckSquare, faCoffee, fab);
 
@@ -90,13 +88,16 @@ const Main = () => {
               <Nav.Link href="/main">Home</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
+              <Nav.Link href="/main">Contact</Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
               <Nav.Link eventKey="link-1">About</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Nav.Link eventKey="link-2">Gallery</Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">
-              <Nav.Link eventKey="link-2">Contact</Nav.Link>
+              <Nav.Link href="/chat">Chat</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>

@@ -3,10 +3,9 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Main from "./pages/main";
 import SignIn from "./pages/signin";
 import SignUp from './pages/signup';
-import Mapbox from './pages/mapbox';
 import {isAuthenticated} from './services/auth'
+import Chat from './pages/chat'
 
-const teste = true
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -29,6 +28,7 @@ const App = () => {
         <Route path="/" exact={true} component={SignIn} />
         <Route path="/signup" exact={true} component={SignUp} />
         <PrivateRoute path="/main" exact={true} component={Main} />
+        <PrivateRoute path="/chat" exact={true} component={Chat} />
       </Switch>
     </BrowserRouter>
   );
