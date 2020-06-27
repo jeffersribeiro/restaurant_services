@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Main from "./pages/main";
+import Main from "./pages/home";
+import Painel from "./pages/painel";
 import SignIn from "./pages/signin";
-import SignUp from './pages/signup';
-import {isAuthenticated} from './services/auth'
-import Chat from './pages/chat'
+import SignUp from "./pages/signup";
+import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -19,16 +19,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-
-
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact={true} component={SignIn} />
+        <Route path="/" exact={true} component={Main} />
         <Route path="/signup" exact={true} component={SignUp} />
-        <PrivateRoute path="/main" exact={true} component={Main} />
-        <PrivateRoute path="/chat" exact={true} component={Chat} />
+        <Route path="/signin" exact={true} component={SignIn} />
+        <PrivateRoute path="/painel" exact={true} component={Painel} />
       </Switch>
     </BrowserRouter>
   );
