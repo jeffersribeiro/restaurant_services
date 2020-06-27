@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 
-import { auth } from "../../services/firebase";
 import { Form, Container } from "./styles";
+
 import { login } from "../../services/auth";
+import api from "../../services/api";
 
 class SignIn extends Component {
   state = {
@@ -18,18 +19,16 @@ class SignIn extends Component {
     if (!email || !password) {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
-      auth
-        .signInWithEmailAndPassword(email, password)
-        .then((res) => {
-          login(res.user.l);
-          this.props.history.push("/main");
-        })
-        .catch((err) => {
-          this.setState({
-            error:
-              "Houve um problema com o login, verifique suas credenciais. T.T",
-          });
+      try {
+        const response = await api.post("/sessions", { email, password });
+        login(response.data.token);
+        this.props.history.push("/painel")
+      } catch (err) {
+        this.setState({
+          error:
+            "Houve um problema com o login, verifique suas credenciais. T.T",
         });
+      }
     }
   };
 
@@ -44,11 +43,13 @@ class SignIn extends Component {
           {this.state.error && <p>{this.state.error}</p>}
           <input
             type="email"
+            value={this.state.email}
             placeholder="Endereço de e-mail"
             onChange={(e) => this.setState({ email: e.target.value })}
           />
           <input
             type="password"
+            value={this.state.password}
             placeholder="Senha"
             onChange={(e) => this.setState({ password: e.target.value })}
           />
