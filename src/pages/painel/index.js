@@ -8,7 +8,6 @@ import Billets from "./components/billet";
 import { logout } from "../../services/auth";
 
 class Painel extends Component {
- 
   handleLogout = (e) => {
     logout();
     this.props.history.push("/");

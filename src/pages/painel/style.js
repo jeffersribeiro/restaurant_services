@@ -72,7 +72,7 @@ export const CardStyle = styled.div`
       color: white;
     }
     :hover {
-      border: none;
+      border: solid 50px;
     }
     active {
       :border: none;

@@ -3,6 +3,8 @@ import api from "../../../../services/api";
 import { Button, Form, Modal, Col, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { ModalInfos } from "../../style";
+
+
 const OpenModalButton = styled.div`
   button{
     position:relative
@@ -19,32 +21,41 @@ class ViewModal extends Component {
       showInstructions: true,
       billetName: "",
       billetdueDate: "",
-      payday: "",
-      variant: "",
-      message: "",
+      billetValue: "",
+      payday: "1",
+      variant: "danger",
+      message: "primary",
     };
   }
   onSubmitPress = async (e) => {
     e.preventDefault();
-    const { billetName, billetdueDate, payday } = this.state;
+    const { billetName, payday, billetValue } = this.state;
     try {
-      await api
-        .post("/billet", {
-          billetName,
-          billetdueDate,
-          payday,
-        })
-        .then((res) => res);
-
-      this.setState({
-        billetName: "",
-        billetdueDate: "",
-        payday: "",
-        billetValue: "",
-        variant: "primary",
-        message: "Boleto salvo com sucesso ;)",
-        showInstructions: false,
-      });
+      if (!billetName || !billetValue || !payday) {
+        alert("Preencha os dados para continuar !");
+        this.setState({
+          variant: "primary",
+          message: "Preencha os dados para continuar !",
+        });
+      } else {
+        await api
+          .post("/billet", {
+            billetName,
+            billetValue,
+            payday,
+          })
+          .then((res) => res);
+          alert("Boleto salvo com sucesso");
+        this.setState({
+          billetName: "",
+          billetdueDate: "",
+          payday: "",
+          billetValue: "",
+          variant: "primary",
+          message: "Boleto salvo com sucesso ;)",
+          showInstructions: false,
+        });
+      }
     } catch (err) {
       this.setState({
         variant: "danger",
@@ -81,6 +92,8 @@ class ViewModal extends Component {
                 <Form.Group controlId="">
                   <Form.Label>Nome do Boleto</Form.Label>
                   <Form.Control
+                    className="w-50"
+                    maxLength={30}
                     value={this.state.billetName}
                     onChange={(e) =>
                       this.setState({ billetName: e.target.value })
@@ -92,11 +105,12 @@ class ViewModal extends Component {
                 <Form.Group controlId="">
                   <Form.Label>Valor:</Form.Label>
                   <Form.Control
+                    className="w-50"
                     value={this.state.billetValue}
                     onChange={(e) =>
                       this.setState({ billetValue: e.target.value })
                     }
-                    type="data"
+                    type="number"
                     placeholder="R$ 0,00"
                   />
                 </Form.Group>
@@ -105,7 +119,7 @@ class ViewModal extends Component {
                   <Row>
                     <Form.Check
                       type="radio"
-                      value={this.state.payday}
+                      value={"first option"}
                       onClick={(e) => this.setState({ payday: e.target.value })}
                       label="Quero pagar assim que receber o boleto"
                       name="formHorizontalRadios"
@@ -113,7 +127,7 @@ class ViewModal extends Component {
                     />
                     <Form.Check
                       type="radio"
-                      value={this.state.billetdueDate}
+                      value={"second option"}
                       onClick={(e) => {
                         this.setState({ payday: e.target.value });
                       }}
@@ -194,7 +208,7 @@ class ViewModal extends Component {
               <Modal.Header>
                 <ModalInfos>
                   <label id="number2">2</label>
-                  <label id="letters2">Siga esses passo</label>
+                  <label id="letters2">Siga os seguintes passos</label>
                 </ModalInfos>
               </Modal.Header>
               <div>

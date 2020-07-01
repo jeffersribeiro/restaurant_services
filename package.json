@@ -11,6 +11,8 @@
     "firebase": "^7.14.2",
     "firebaseui": "^4.5.0",
     "react": "^16.13.1",
+    "react-alert": "^7.0.1",
+    "react-alert-template-basic": "^1.0.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-flippy": "^0.1.5",

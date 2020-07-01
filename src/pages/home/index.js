@@ -125,7 +125,7 @@ class Main extends Component {
                   placeholder="Valor *"
                 />
               </InputGroup>
-              <div>
+              <div classname="text-align-center">
                 {this.state.error && <p id="error">{this.state.error}</p>}
               </div>
               <Button className="mt-1" variant="primary" type="submit">
