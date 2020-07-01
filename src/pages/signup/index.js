@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-import { Form, Container } from "./styles";
 import api from "../../services/api";
+import { Button, Row, Container, Form } from "react-bootstrap";
 
 class SignUp extends Component {
   state = {
@@ -14,13 +14,15 @@ class SignUp extends Component {
 
   handleSignIn = async (e) => {
     e.preventDefault();
-    const {username, email, password } = this.state;
+    const { username, email, password } = this.state;
     if (!username || !email || !password) {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
       try {
-        await api.post("/users",{
-          username, email, password
+        await api.post("/users", {
+          username,
+          email,
+          password,
         });
         this.props.history.push("/");
       } catch (err) {
@@ -34,30 +36,46 @@ class SignUp extends Component {
 
   render() {
     return (
-      <Container>
-        <Form onSubmit={this.handleSignIn}>
+      <Container fluid>
+        <Row className="justify-content-center m-2">
           <img
             src={require("../../assets/images/logo.jpeg")}
             alt="Airbnb logo"
+            height="80em"
           />
-          {this.state.error && <p>{this.state.error}</p>}
-          <input
-            type="name"
-            placeholder="Nome de Usuario"
-            onChange={(e) => this.setState({ username: e.target.value })}
-          />
-          <input
-            type="email"
-            placeholder="Endereço de e-mail"
-            onChange={(e) => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            onChange={(e) => this.setState({ password: e.target.value })}
-          />
-          <button type="submit">Registrar</button>
-        </Form>
+        </Row>
+        <Row className="justify-content-center m-3">
+          <Form className="p-5 signup-form" onSubmit={this.handleSignIn}>
+            <Form.Group controlId="formBasicUsername">
+              <Form.Label>Nome</Form.Label>
+              <Form.Control
+                value={this.state.username}
+                onChange={(e) => this.setState({ username: e.target.value })}
+                type="text"
+                placeholder="Nome completo *"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>E-mail</Form.Label>
+              <Form.Control
+                value={this.state.email}
+                onChange={(e) => this.setState({ email: e.target.value })}
+                type="email"
+                placeholder="E-mail *"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Senha</Form.Label>
+              <Form.Control
+                value={this.state.password}
+                onChange={(e) => this.setState({ password: e.target.value })}
+                type="password"
+                placeholder="senha secreta *"
+              />
+            </Form.Group>
+            <Button type="submit">Registrar</Button>
+          </Form>
+        </Row>
       </Container>
     );
   }

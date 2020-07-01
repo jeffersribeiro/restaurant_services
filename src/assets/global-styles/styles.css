@@ -1,0 +1,99 @@
+.about label {
+    color: #3d3d3d;
+    font-size: 1.2em;
+}
+
+
+.about p {
+    font-size: 1.1em;
+    color: #7a7a7a;
+}
+
+.home-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2em;
+    box-shadow: 0 0 0.2em darkgray;
+
+}
+
+.signin-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2em;
+    box-shadow: 0 0 0.2em darkgray;
+
+}
+
+.signup-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2em;
+    box-shadow: 0 0 0.2em darkgray;
+
+}
+
+.card-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2em;
+    box-shadow: 0 0 0.2em darkgray;
+
+}
+
+.card-form input.form-control:hover {
+    height: 3.5em;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px #000000;
+}
+
+
+
+h1 {
+    color: #7a7a7a;
+    margin-bottom: 0.2em;
+    text-align: center;
+    font-size: 2em;
+}
+
+form label {
+    font-size: 1.2em;
+    color: #3d3d3d;
+    font-weight: bold;
+}
+
+input.form-control {
+    height: 3.5em;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px #7a7a7a;
+}
+
+.signup-link {
+    color: rgb(44, 44, 44);
+    overflow: hidden;
+    text-overflow: none;
+    text-overflow: none;
+
+}
+
+.signup-link:hover {
+    text-decoration: none;
+}
+
+input.form-control:hover {
+    height: 3.5em;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 2px black;
+}
+
+
+form button {
+    height: 3.3em;
+    width: 100%;
+    margin-top: 1em;
+    font-weight: 500;
+    font-size: 1.3em;
+}

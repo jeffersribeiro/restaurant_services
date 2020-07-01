@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { ContainerAbout, ContainerLogin } from "./styles";
 import api from "../../services/api";
 
-import { Button, Row, Col, Container, Form, InputGroup } from "react-bootstrap";
+import "../../assets/global-styles/styles.css";
+
+import {
+  Button,
+  Row,
+  Col,
+  Container,
+  Form,
+  InputGroup,
+  Nav,
+} from "react-bootstrap";
 
 class Main extends Component {
   constructor() {
@@ -33,8 +42,7 @@ class Main extends Component {
           })
           .then((e) => e.status);
         this.setState({
-          error:
-            "Obrigado, agora é só aguardar ;)",
+          error: "Obrigado, agora é só aguardar ;)",
         });
       } catch (err) {
         this.setState({
@@ -48,21 +56,54 @@ class Main extends Component {
     return (
       <Container fluid>
         <Row>
-          <ContainerLogin>
-            <div className="loginButton">
+          <Nav className="justify-content-end m-2">
+            <Nav.Item>
               <Button variant="outline-primary" href="/signin">
                 Login
               </Button>
-            </div>
-            <h1>Solicite sua analise AGORA é grátis, fácil e rápido.</h1>
-            <Form onSubmit={this.onProposalSubmit}>
+            </Nav.Item>
+          </Nav>
+        </Row>
+        <Row>
+          <Col className="about" xs={12} md={8}>
+            <label>Where can I get some?</label>
+            <p>
+              t is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here', making it look like readable English. Many desktop
+              publishing packages and web page editors now use Lorem Ipsum as
+              their default model text, and a search for 'lorem ipsum' will
+              uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on
+              purpose (injected humour and the like).
+            </p>
+            <label>Where does it come from?</label>
+            <p>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable. If you are going to use a passage of Lorem
+              Ipsum, you need to be sure there isn't anything embarrassing
+              hidden in the middle of text. All the Lorem Ipsum generators on
+              the Internet tend to repeat predefined chunks as necessary, making
+              this the first true generator on the Internet. It uses a
+              dictionary of over 200 Latin words, combined with a handful of
+              model sentence structures, to generate Lorem Ipsum which looks
+              reasonable. The generated Lorem Ipsum is therefore always free
+              from repetition, injected humour, or non-characteristic words etc.
+            </p>
+          </Col>
+          <Col>
+            <Form className="home-form" onSubmit={this.onProposalSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>E-mail</Form.Label>
                 <Form.Control
                   value={this.state.email}
                   onChange={(e) => this.setState({ email: e.target.value })}
                   type="email"
-                  placeholder="E-mail"
+                  placeholder="E-mail *"
                 />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
@@ -71,49 +112,26 @@ class Main extends Component {
                   value={this.state.username}
                   onChange={(e) => this.setState({ username: e.target.value })}
                   type="text"
-                  placeholder="Nome completo"
+                  placeholder="Nome completo *"
                 />
               </Form.Group>
               <Form.Label>Valor atual de gastos com Boletos</Form.Label>
               <InputGroup className="mb-2">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>R$</InputGroup.Text>
-                </InputGroup.Prepend>
                 <Form.Control
                   value={this.state.value}
                   onChange={(e) => this.setState({ value: e.target.value })}
                   type="number"
                   id="inlineFormInputGroup"
-                  placeholder="Valor"
+                  placeholder="Valor *"
                 />
               </InputGroup>
               <div>
-              {this.state.error && <p id="error">{this.state.error}</p>}
+                {this.state.error && <p id="error">{this.state.error}</p>}
               </div>
               <Button className="mt-1" variant="primary" type="submit">
                 Quero uma analise
               </Button>
             </Form>
-          </ContainerLogin>
-        </Row>
-        <Row>
-          <Col>
-            <ContainerAbout>
-              <label>Como funciona</label>
-              <p>
-                Desenvolvido pela house Dogs a plataforma Pague fácil vem para
-                te mostrar uma nova forma de se organizar e pagar suas finanças.
-              </p>
-            </ContainerAbout>
-          </Col>
-          <Col>
-            <ContainerAbout>
-              <label>Quem Somos</label>
-              <p>
-                Desenvolvido pela house Dogs a plataforma Pague fácil vem para
-                te mostrar uma nova forma de se organizar e pagar suas finanças.
-              </p>
-            </ContainerAbout>
           </Col>
         </Row>
         <Row className="justify-content-center flex-column align-items-center">

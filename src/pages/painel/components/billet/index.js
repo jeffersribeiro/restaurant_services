@@ -3,29 +3,16 @@ import api from "../../../../services/api";
 import { Container, Table } from "react-bootstrap";
 
 function Item({ id, name, data, value }) {
-  let DATA = new Date();
-  let hour = DATA.getHours();
-  let variant = "";
-  if (hour >= 7 && hour <= 19) variant = "";
-  else variant = "dark";
   return (
     <>
       <div className="table-responsive-xl">
-        <Table responsive striped bordered hover variant={variant}>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Data</th>
-              <th>Valor</th>
-            </tr>
-          </thead>
+        <Table striped bordered hover>
           <tbody>
             <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{data}</td>
-              <td>{value}</td>
+              <td style={{width:"15.5%"}}>{id}</td>
+              <td style={{width:"30%"}}>{name}</td>
+              <td style={{width:"26%"}}>{data}</td>
+              <td style={{width:"28%"}}>{value}</td>
             </tr>
           </tbody>
         </Table>
@@ -39,25 +26,25 @@ class Billets extends Component {
     super();
     this.state = {
       dataSource: [],
-      variant:"",
-      Messsage:""
+      variant: "",
+      Messsage: "",
     };
   }
 
   getAllBillets = async () => {
-    try{
+    try {
       await api.get("/billets").then((res) => {
         const { data } = res;
         this.setState({
           dataSource: data,
-          variant:"primary",
-          Messsage:"Todos os boletos foram carregados!"
+          variant: "primary",
+          Messsage: "Todos os boletos foram carregados!",
         });
       });
-    } catch(err){
+    } catch (err) {
       this.setState({
-        variant:"danger",
-        Messsage:"ops, você não tem boletos cadrastrados ou ouve um erro!"
+        variant: "danger",
+        Messsage: "ops, você não tem boletos cadrastrados ou ouve um erro!",
       });
     }
   };
@@ -69,7 +56,17 @@ class Billets extends Component {
   render() {
     const { dataSource } = this.state;
     return (
-      <Container className="mt-3" fluid>
+      <Container fluid>
+        <Table responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th style={{width:"15.5%"}}>#</th>
+              <th style={{width:"30%"}}>Nome</th>
+              <th style={{width:"26%"}}>Data</th>
+              <th style={{width:"28%"}}>Valor</th>
+            </tr>
+          </thead>
+        </Table>
         {dataSource.map((item) => (
           <Item
             key={item.id}
