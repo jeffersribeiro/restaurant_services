@@ -1,0 +1,288 @@
+{
+    "source": "mockoon:1.7.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "lastMigration": 9,
+                "name": "Demo users API",
+                "endpointPrefix": "",
+                "latency": 0,
+                "port": 3001,
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "Get a user",
+                        "method": "get",
+                        "endpoint": "users/:id",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"id\": 1,\n  \"firstname\": \"John\",\n  \"Lastname\": \"Snow\",\n  \"status\": \"Learning things\"\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "Get userId 1",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "params",
+                                        "modifier": "id",
+                                        "value": "1",
+                                        "isRegex": false
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"id\": 2,\n  \"firstname\": \"Daenerys\",\n  \"Lastname\": \"Targaryen\",\n  \"status\": \"Riding a dragon\"\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "Get userId 2",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "params",
+                                        "modifier": "id",
+                                        "value": "2",
+                                        "isRegex": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "Create a user",
+                        "method": "post",
+                        "endpoint": "users",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"username\": \"{{body 'username'}}\",\n  \"email\": \"{{body 'email'}}\",\n  \"password\": \"{{body 'password'}}\",\n  \"token\":\"v1tr5s6htr8hs4fb1df3h1e2bs\"\n}",
+                                "latency": 0,
+                                "statusCode": "201",
+                                "label": "Success",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "body",
+                                        "modifier": "firstname",
+                                        "value": ".+",
+                                        "isRegex": true
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"Error\": \"firstname is required\"\n}",
+                                "latency": 0,
+                                "statusCode": "400",
+                                "label": "Missing data",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "body",
+                                        "modifier": "firstname",
+                                        "value": "^$",
+                                        "isRegex": true
+                                    }
+                                ]
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "get all billets of user",
+                        "method": "get",
+                        "endpoint": "billets",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[{\n  \"id\": 1,\n  \"name\": \"conta de luz\",\n  \"data\": \"20/05/2020\",\n  \"value\": \"254.25\"\n},\n{\n  \"id\": 2,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.32\"\n},\n{\n  \"id\": 3,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.25\"\n},\n{\n  \"id\": 4,\n  \"name\": \"conta de luz\",\n  \"data\": \"20/05/2020\",\n  \"value\": \"254.25\"\n},\n{\n  \"id\": 5,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.32\"\n},\n{\n  \"id\": 6,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.25\"\n},\n{\n  \"id\": 7,\n  \"name\": \"conta de luz\",\n  \"data\": \"20/05/2020\",\n  \"value\": \"254.25\"\n},\n{\n  \"id\": 8,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.32\"\n},\n{\n  \"id\": 9,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.25\"\n},\n{\n  \"id\": 10,\n  \"name\": \"conta de luz\",\n  \"data\": \"20/05/2020\",\n  \"value\": \"254.25\"\n},\n{\n  \"id\": 11,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.32\"\n},\n{\n  \"id\": 12,\n  \"name\": \"conta de Agua\",\n  \"data\": \"15/05/2020\",\n  \"value\": \"154.25\"\n}\n]",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "get user card",
+                        "method": "get",
+                        "endpoint": "card",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n    \"cardName\":\"Alan F. Santos\",\n    \"cardNumber\":\"26569 8555 8454 5465\",\n    \"cardDueDate\":\"45/48\",\n    \"cardVCC\":\"4548\"\n    \n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "update card user",
+                        "method": "post",
+                        "endpoint": "updatecard",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"cardName\": \"{{body 'cardName'}}\",\n  \"cardNumber\": \"{{body 'cardNumber'}}\",\n  \"cardDueDate\": \"{{body 'cardDueDate'}}\",\n  \"cardVCC\":\"{{body 'cardVCC'}}\"\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "insert new billet",
+                        "method": "post",
+                        "endpoint": "billet",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n    \"billetName\":\"{{body 'billetName'}}\",\n    \"billetValue\":\"{{body 'billetValue'}}\",\n    \"payday\":\"{{body 'payday'}}\" ,\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "send a client proposal",
+                        "method": "post",
+                        "endpoint": "proposal",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n    \"username\":\"{{body 'username'}}\",\n    \"email\":\"{{body 'email'}}\",\n    \"value\":\"{{body 'value'}}\"\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "start a user session",
+                        "method": "post",
+                        "endpoint": "sessions",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n    \"email\":\"{{body 'email'}}\",\n    \"password\":\"{{body 'password'}}\"\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "https": true,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ]
+            }
+        }
+    ]
+}
