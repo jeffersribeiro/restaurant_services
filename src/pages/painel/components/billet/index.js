@@ -40,7 +40,7 @@ class Billets extends Component {
           variant: "primary",
           Messsage: "Todos os boletos foram carregados!",
         });
-      });
+      }); 
     } catch (err) {
       this.setState({
         variant: "danger",

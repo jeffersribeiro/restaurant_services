@@ -28,7 +28,7 @@ class SignUp extends Component {
       } catch (err) {
         this.setState({
           error:
-            "Houve um problema com o login, verifique suas credenciais. T.T",
+            "Houve um problema com o cadastro, tente novamente :/",
         });
       }
     }
@@ -76,6 +76,9 @@ class SignUp extends Component {
             <Button type="submit">Registrar</Button>
           </Form>
         </Row>
+        <div classname="text-align-center">
+          {this.state.error && <p id="error">{this.state.error}</p>}
+        </div>
       </Container>
     );
   }

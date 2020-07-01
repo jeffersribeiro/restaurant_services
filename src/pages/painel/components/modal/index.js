@@ -57,6 +57,7 @@ class ViewModal extends Component {
         });
       }
     } catch (err) {
+      alert("Não foi possivel enviar seu boleto, por favor tente novamente!")
       this.setState({
         variant: "danger",
         message:

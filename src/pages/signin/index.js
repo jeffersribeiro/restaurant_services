@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import ShowAlert from "../painel/components/alert";
 
 import { login } from "../../services/auth";
 import api from "../../services/api";
@@ -75,10 +76,15 @@ class SignIn extends Component {
                 marginLeft: "22%",
               }}
             >
-              <Link className="signup-link" to="/signup">Criar conta grátis</Link>
+              <Link className="signup-link" to="/signup">
+                Criar conta grátis
+              </Link>
             </div>
           </Form>
         </Row>
+        <div classname="text-align-center">
+          {this.state.error && <p id="error">{this.state.error}</p>}
+        </div>
       </Container>
     );
   }

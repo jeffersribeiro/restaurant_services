@@ -20,7 +20,7 @@ class Card extends Component {
       fullValue: "",
       isLoading: false,
       flagCard: "https://img.icons8.com/cotton/2x/sim-card-chip--v1.png",
-      haveCard: true,
+      haveCard: false,
     };
   }
 
@@ -36,6 +36,14 @@ class Card extends Component {
         variant: "success",
         message: "carregado com sucesso!!",
       });
+
+      
+
+      if(response.data.cardNumber){
+        this.setState({
+          haveCard:true
+        })
+      }
     } catch (err) {
       this.setState({
         isLoading: false,
@@ -87,6 +95,7 @@ class Card extends Component {
           haveCard: true,
         });
       } catch (err) {
+        alert("Não foi póssivel salvar, tente novamente!!")
         this.setState({
           variant: "danger",
           message: "Não foi póssivel salvar, tente novamente!!",

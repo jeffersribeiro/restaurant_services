@@ -45,6 +45,7 @@ class Main extends Component {
           error: "Obrigado, agora é só aguardar ;)",
         });
       } catch (err) {
+        alert("ouve um problema, por favor tente novamente :|")
         this.setState({
           error: "ouve um problema, por favor tente novamente :|",
         });
