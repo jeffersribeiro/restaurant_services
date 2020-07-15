@@ -1,99 +1,205 @@
-.about label {
-    color: #3d3d3d;
-    font-size: 1.2em;
+.body {
+  display: flex;
+  height: 98vh;
+  width: 97vw;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.align-center {
+  display: flex;
+  height: 98vh;
+  width: 98vw;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.about label {
+  color: #3d3d3d;
+  font-size: 1.2rem;
+}
 
 .about p {
-    font-size: 1.1em;
-    color: #7a7a7a;
+  font-size: 1.1rem;
+  color: #7a7a7a;
+}
+
+a:hover {
+  color: white;
 }
 
 .home-form {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2em;
-    box-shadow: 0 0 0.2em darkgray;
-
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 0.2rem darkgray;
 }
 
 .signin-form {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2em;
-    box-shadow: 0 0 0.2em darkgray;
-
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 0.2em darkgray;
 }
 
 .signup-form {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2em;
-    box-shadow: 0 0 0.2em darkgray;
-
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 0.2em darkgray;
 }
 
 .card-form {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2em;
-    box-shadow: 0 0 0.2em darkgray;
-
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 0.2rem darkgray;
 }
 
 .card-form input.form-control:hover {
-    height: 3.5em;
-    border: none;
-    border-radius: 0;
-    border-bottom: solid 1px #000000;
+  height: 3.5rem;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 1px #000000;
 }
 
-
-
 h1 {
-    color: #7a7a7a;
-    margin-bottom: 0.2em;
-    text-align: center;
-    font-size: 2em;
+  color: #7a7a7a;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 form label {
-    font-size: 1.2em;
-    color: #3d3d3d;
-    font-weight: bold;
+  font-size: 1.2rem;
+  color: #3d3d3d;
+  font-weight: bold;
 }
 
 input.form-control {
-    height: 3.5em;
-    border: none;
-    border-radius: 0;
-    border-bottom: solid 1px #7a7a7a;
+  height: 3.5rem;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 1px #7a7a7a;
 }
 
 .signup-link {
-    color: rgb(44, 44, 44);
-    overflow: hidden;
-    text-overflow: none;
-    text-overflow: none;
-
+  color: rgb(44, 44, 44);
+  overflow: hidden;
+  text-overflow: none;
+  text-overflow: none;
 }
 
 .signup-link:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 input.form-control:hover {
-    height: 3.5em;
-    border: none;
-    border-radius: 0;
-    border-bottom: solid 2px black;
+  height: 3.5rem;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 2px black;
+}
+
+form button {
+  height: 3.3rem;
+  width: 100%;
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.form-title {
+  font-size: 2rem;
+  color: #3d3d3d;
+  text-align: center;
+}
+
+.MuiInputBase-input.Mui-disabled {
+  background-color: #faf9f9;
+  border-bottom: solid 0.1mm rgb(124, 124, 124);
+}
+.MuiSelect-select.MuiSelect-select {
+}
+
+.access-email-container {
+  word-wrap: break-word;
+  width: 100%;
+  text-overflow: ellipsis;
+  height: 50px;
+}
+
+/* .serv-email {
+  display: block;
+  max-width: 300px;
+  margin: 20px auto 40px auto;
+  transition: 0.3s;
+
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+}
+
+.serv-email:hover {
+  -webkit-filter: none;
+  filter: none;
+} */
+
+
+.button-serv-email {
+  transition: 0.3s;
+  width: 65px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  border: none;
+  background: none;
+  margin: 9px;
+}
+
+.button-serv-email:hover{
+  -webkit-filter: none;
+  filter: none;
+}
+
+.button-serv-email:focus{
+  -webkit-filter: none;
+  filter: none;
+}
+
+.select-serv-email-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 50px;
 }
 
 
-form button {
-    height: 3.3em;
-    width: 100%;
-    margin-top: 1em;
-    font-weight: 500;
-    font-size: 1.3em;
+.sr-only{
+  color: red;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after{
+  font-size: 55px;
+  color: rgb(37, 37, 37);
+  border: none;
+}
+
+.carousel-control-prev-icon:after {
+  font-size: 55px;
+  color: rgb(37, 37, 37);
+}
+
+.hidden {
+  display: none;
 }

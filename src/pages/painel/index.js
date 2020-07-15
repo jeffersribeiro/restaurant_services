@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Button, Container, Row, Col } from "react-bootstrap";
-import Card from "./components/card";
-
-import ViewModal from "./components/modal";
-import Billets from "./components/billet";
+import { Container, Row, Col } from "react-bootstrap";
+import Card from "./components/CreditCard";
+import Button from "@material-ui/core/Button";
+import ViewModal from "./components/Modal";
+import Billets from "./components/Billet";
 import { logout } from "../../services/auth";
 
 class Painel extends Component {
@@ -16,21 +16,25 @@ class Painel extends Component {
   render() {
     return (
       <Container className="h-100" fluid>
-        <Row className="justify-content-between m-2">
+        <Row className="d-flex flex-row justify-content-between m-2">
           <ViewModal />
-          <Button href="/" variant="primary" onClick={this.handleLogout}>
+          <Button
+            href="/"
+            variant="contained"
+            color="primary"
+            onClick={this.handleLogout}
+          >
             Logout
           </Button>
         </Row>
-        <Row className="mv-2">
-          <Col>
+        <Row className="mt-3">
+          <Col  xs={12} md={8} >
             <Billets />
           </Col>
-          <Col xs lg="3" md="auto">
+          <Col xs="auto" md={4}>
             <Card />
           </Col>
         </Row>
-        <Row className="m-2"></Row>
       </Container>
     );
   }

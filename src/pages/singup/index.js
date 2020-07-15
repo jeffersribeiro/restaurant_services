@@ -1,22 +1,36 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 import api from "../../services/api";
-import { Button, Row, Container, Form } from "react-bootstrap";
+import { Row, Container, Form } from "react-bootstrap";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 class SignUp extends Component {
   state = {
     username: "",
     email: "",
     password: "",
+    severity: "",
     error: "",
+    isError: false,
   };
 
   handleSignIn = async (e) => {
     e.preventDefault();
     const { username, email, password } = this.state;
     if (!username || !email || !password) {
-      this.setState({ error: "Preencha e-mail e senha para continuar!" });
+      this.setState({
+        isError: true,
+        severity: "error",
+        error: "Preencha e-mail e senha para continuar!",
+      });
     } else {
       try {
         await api.post("/users", {
@@ -27,8 +41,9 @@ class SignUp extends Component {
         this.props.history.push("/");
       } catch (err) {
         this.setState({
-          error:
-            "Houve um problema com o cadastro, tente novamente :/",
+          isError: true,
+          severity: "warning",
+          error: "Houve um problema com o cadastro, tente novamente :/",
         });
       }
     }
@@ -47,38 +62,43 @@ class SignUp extends Component {
         <Row className="justify-content-center m-3">
           <Form className="p-5 signup-form" onSubmit={this.handleSignIn}>
             <Form.Group controlId="formBasicUsername">
-              <Form.Label>Nome</Form.Label>
-              <Form.Control
+              <TextField
                 value={this.state.username}
                 onChange={(e) => this.setState({ username: e.target.value })}
                 type="text"
-                placeholder="Nome completo *"
+                label="Nome completo *"
               />
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>E-mail</Form.Label>
-              <Form.Control
+              <TextField
                 value={this.state.email}
                 onChange={(e) => this.setState({ email: e.target.value })}
                 type="email"
-                placeholder="E-mail *"
+                label="E-mail *"
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Senha</Form.Label>
-              <Form.Control
+              <TextField
                 value={this.state.password}
                 onChange={(e) => this.setState({ password: e.target.value })}
                 type="password"
-                placeholder="senha secreta *"
+                label="senha secreta *"
               />
             </Form.Group>
-            <Button type="submit">Registrar</Button>
+            <div>
+              <Button variant="contained" color="primary" type="submit">
+                Registrar
+              </Button>
+              <Snackbar
+                open={this.state.isError}
+                autoHideDuration={4000}
+                onClose={() => this.setState({ isError: false })}
+              >
+                <Alert severity={this.state.severity}>{this.state.error}</Alert>
+              </Snackbar>
+            </div>
           </Form>
         </Row>
-        <div classname="text-align-center">
-          {this.state.error && <p id="error">{this.state.error}</p>}
-        </div>
       </Container>
     );
   }

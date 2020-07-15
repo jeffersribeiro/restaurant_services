@@ -1,5 +1,4 @@
 export const TOKEN_KEY = "";
-export const TOKEN_KEY2 = "@airbnb-Token";
 
 export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 

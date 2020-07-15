@@ -49,13 +49,15 @@ export const InputContainer = styled.div`
 `;
 
 export const CardStyle = styled.div`
-  background-color: #3b7ec5;
+  background-color: white;
+  box-shadow: 5px 5px 5px gray;
+  padding:8px
   border-radius: 8px;
   border: none;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 100%;
+  width: 300px;
   height: 100%;
   padding-left: 9px;
 
