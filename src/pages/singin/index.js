@@ -46,7 +46,7 @@ class SignIn extends Component {
         this.setState({
           isLoading: true,
         });
-        const response = await api.post("/users", { email, password });
+        const response = await api.post("/session", { email, password });
         login(response.data.token);
         this.props.history.push("/painel");
       } catch (err) {
